@@ -1,0 +1,14 @@
+.processing-circle {
+    width: 100px;
+    height: 100px;
+    border: 8px solid #452791;
+    border-top: 10px solid white;
+    border-radius: 50%;
+    animation: spin 0.5s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
