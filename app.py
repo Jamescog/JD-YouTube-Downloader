@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, request, redirect
+from flask import Flask, render_template, send_file, request, redirect, flash
 from flask_cors import CORS
 from main import information
 
@@ -10,7 +10,7 @@ CORS(app)
 
 # set sectrets
 
-app.config["FLASK-SECRET"] = "secret"
+app.config["SECRET-KEY"] = "secret"
 
 # set the path to the download folder
 app.config["DOWNLOAD_FOLDER"] = "downloads"
@@ -18,13 +18,13 @@ app.config["DOWNLOAD_FOLDER"] = "downloads"
 
 @app.route("/")
 def home():
+    flash("Welcome")
     return render_template("index.html")
 
 
 @app.route("/meta-data")
 def meta_data():
     """"""
-    print(request.base_url)
     data = information(request.args.get("url"))
     print(data)
     return data
