@@ -1,7 +1,7 @@
 #### Things I am planning to add, I will strikethrough as I complete them
 
 1. ###### Error Validation on input url
-        - <s>validate if the url is from youtube</s>
+        - ~~ validate if the url is from youtube ~~
         - validate for age restriction
         - some videos that can't be downloaded
 2. ###### Add filtering ablity
