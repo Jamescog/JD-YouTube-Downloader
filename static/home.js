@@ -1,12 +1,7 @@
 $(document).ready(() => {
-    // function showProcessingCircle() {
-    //         $(".processing-circle").show();
-    //     }
-
-    // // Function to hide the processing circle
-    // function hideProcessingCircle() {
-    //     $(".processing-circle").hide();
-    // }
+    $(".close").click(() => {
+        $("#error-container").addClass("d-none")
+    })
     $("#goButton").click(() => {
         const Uurl = $("#youtubeUrlInput").val();
         if (Uurl === "") {
@@ -15,14 +10,14 @@ $(document).ready(() => {
         }
         $(".warn-text").addClass("d-none");
 
-        $("#circle").removeClass("d-none").addClass("processing-circle");
+        $("#circle-container").removeClass("d-none").addClass("processing-circle");
 
         $.ajax({
             url: "http://localhost:5000/meta-data" + `?url=${Uurl}`,
             type: "GET",
             success: (data) => {
                 const files = data.videos;
-                $("#circle").removeClass("processing-circle").addClass("d-none");
+                $("#circle-container").removeClass("processing-circle").addClass("d-none");
                 $("#data-table").removeClass("d-none");
                 var videoDataBody = $('#videoDataBody');
                 videoDataBody.empty(); // Clear the table before adding new rows
@@ -66,7 +61,15 @@ $(document).ready(() => {
 
             },
             error: (err) => {
-                console.log(err);
+                $("#circle-container").removeClass("processing-cirl").addClass("d-none");
+                $(".err-title").text(err.responseJSON.title)
+                $(".err-detail").text(err.responseJSON.message)
+                $("#error-container").removeClass("d-none")
+
+                setTimeout(function() {
+                    $("#error-container").fadeOut(1000);
+                },3000);
+                
             }
         });
     });

@@ -7,36 +7,10 @@
   <title>JD YouTube</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 50px;
-      border-radius: 5px;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-      margin-bottom: 30px;
-    }
-
-    .form-control {
-      border-radius: 5px;
-    }
-
-    .btn {
-      border-radius: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -58,6 +32,14 @@
         <p id="video-name" class="font-italic">Title: <span id="title" class="text-info"></span></p>
         <p id="dura" class="font-italic">Duration: <span id="duration" class="text-info"></span></p>
       </div>
+
+      <div class="ui negative message d-none" id="error-container">
+        <i class="close icon"></i>
+        <div class="header err-title">
+        </div>
+        <p class="err-detail ui yellow message"></p>
+        </div>
+      </div>
       <table class="table table-hover .table-borderless table-light d-none" id="data-table">
       <thead thead-dark>
         <tr>
@@ -72,10 +54,10 @@
       </tbody>
     </table>
     </form>
-    <div class="container">
+    <div class="container d-none" id="circle-container">
         <div class="row">
             <div class="col-12 text-center">
-                <div class="d-none" id="circle"></div>
+                <divid="circle"></div>
             </div>
         </div>
     </div>
@@ -84,6 +66,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="{{ url_for('static', filename='home.js') }}"></script>
 </body>
 

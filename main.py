@@ -1,7 +1,6 @@
 from pytube import YouTube
 from collections import OrderedDict
 
-# Initialize an empty dictionary to store cached YouTube objects
 cached_videos = OrderedDict()
 
 
